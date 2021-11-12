@@ -4,11 +4,11 @@ import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
-type props = {
+type Props = {
   urlImage: string;
 }
 
-export function Avatar({ urlImage }: props) {
+export function Avatar({ urlImage }: Props) {
   const { secondary50, secondary70 } = theme.colors
   return (
     <LinearGradient

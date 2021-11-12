@@ -7,6 +7,8 @@ import { CategorySelect } from "../../components/CategorySelect";
 import { ListHeader } from "../../components/ListHeader"
 import { Appointments } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider/Index";
+import { Background } from '../../components/Background';
+
 
 export function Home() {
   const [category, setCategory] = useState('');
@@ -41,7 +43,7 @@ export function Home() {
     categoryId === category ? setCategory('') : setCategory(categoryId);
   }
   return (
-    <View>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd />
@@ -67,6 +69,6 @@ export function Home() {
           style={styles.matches}
           showsVerticalScrollIndicator={false}/>
       </View>
-    </View>
+    </Background>
   )
 }
