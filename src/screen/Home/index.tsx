@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { View, FlatList } from "react-native"
+import { CategorySelect } from "../../components/CategorySelect";
+import { ListDivider } from "../../components/ListDivider/Index";
+import { Appointments } from "../../components/Appointment";
+import { useNavigation } from "@react-navigation/native";
+import { Background } from '../../components/Background';
+import { ListHeader } from "../../components/ListHeader";
 import { ButtonAdd } from "../../components/ButtonAdd";
 import { Profile } from "../../components/Profile";
+import { View, FlatList,  } from "react-native"
+import React, { useState } from "react";
 import { styles } from "./styles";
-import { CategorySelect } from "../../components/CategorySelect";
-import { ListHeader } from "../../components/ListHeader"
-import { Appointments } from "../../components/Appointment";
-import { ListDivider } from "../../components/ListDivider/Index";
-import { Background } from '../../components/Background';
 
 
 export function Home() {
   const [category, setCategory] = useState('');
+  const navigation = useNavigation();
   const appointments = [
     {
       id: '1',
@@ -37,16 +39,35 @@ export function Home() {
       date: '11/11 as 17:23h',
       description: 'É hoje que vamos chegar a meste sem preder uma partida'
     },
+    {
+      id: '3',
+      guild: {
+        id: '3',
+        name: 'Lendários',
+        icon: null,
+        owner: false
+      },
+      category: '1',
+      date: '11/11 as 17:23h',
+      description: 'É hoje que vamos chegar a meste sem preder uma partida'
+    },
   ]
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId);
   }
+
+  function handleAppointmentsDetails() {
+    navigation.navigate('AppointmentsDetails')
+  }
+  function handleAppointmentsCriate() {
+    navigation.navigate('AppointmentsCriate')
+  }
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentsCriate} />
       </View>
 
       <View>
@@ -63,11 +84,15 @@ export function Home() {
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Appointments data={item} />
-          )} 
-          ItemSeparatorComponent={() => <ListDivider/>}
+            <Appointments
+              data={item}
+              onPress={handleAppointmentsDetails}
+               />
+          )}
+
+          ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
-          showsVerticalScrollIndicator={false}/>
+          showsVerticalScrollIndicator={false} />
       </View>
     </Background>
   )

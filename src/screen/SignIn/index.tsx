@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, Image } from "react-native"
 import illustration from "../../assets/illustration.png"
-import { ButtonIcon } from "../../components/Buttonicon";
+import { ButtonIcon } from "../../components/ButtonIcon";
 import { styles } from "./styles"
 import { Background } from '../../components/Background';
 

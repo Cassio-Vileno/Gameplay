@@ -6,7 +6,7 @@ import { styles } from "./styles";
 import PlayerSvg from "../../assets/player.svg"
 import CalendarSvg from "../../assets/calendar.svg"
 
-import { GildIcon } from "../GildIcon";
+import { GuildIcon } from "../GuildIcon";
 import { categories } from "../../utils/categories";
 import { theme } from "../../global/styles/theme";
 
@@ -35,7 +35,7 @@ export function Appointments({ data, ...rest }: Props) {
   return (
     <RectButton>
       <View style={styles.container} >
-        <GildIcon />
+        <GuildIcon />
         <View style={styles.content}>
           <View style={styles.header}>
             <Text style={styles.title}>

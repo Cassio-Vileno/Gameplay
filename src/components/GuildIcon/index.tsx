@@ -4,7 +4,7 @@ import { Image } from "react-native";
 import { styles } from "./styles";
 
 
-export function GildIcon() {
+export function GuildIcon() {
   const uri = 'https://static.wikia.nocookie.net/as-aventuras-de-superban-e-super-erro/images/d/dd/Discord.png/revision/latest?cb=20190313184331&path-prefix=pt-br'
   return (
           <Image 
