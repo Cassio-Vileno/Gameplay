@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
-import { Avatar } from "../../components/Avatar";
+import { Avatar } from "../Avatar";
 import { theme } from "../../global/styles/theme";
 
 type MemberProps = {

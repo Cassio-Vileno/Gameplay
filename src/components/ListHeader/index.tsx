@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
 
 type props = {
  title: string

@@ -17,7 +17,7 @@ export function Header({ title, action }: Props) {
 
   const navegation = useNavigation();
 
-  function hendleGoBack(){
+  function hendleGoBack() {
     navegation.goBack();
   }
   return (
@@ -29,17 +29,21 @@ export function Header({ title, action }: Props) {
         <Feather
           name="arrow-left"
           size={24}
-          color={heading} 
-          style={[{paddingLeft:10}]}/>
+          color={heading}
+          style={[{ paddingLeft: 10 }]} />
       </BorderlessButton>
       <Text style={styles.title}>
         {title}
       </Text>
       {
-        action &&
-        <View>
-          {action}
-        </View>
+        action
+          ?
+          <View>
+            {action}
+          </View>
+          :
+          <View style={{ width: 24 }} />
+
       }
 
     </LinearGradient>

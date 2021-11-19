@@ -7,7 +7,5 @@ export function TextAria({...rest}: TextInputProps) {
     <TextInput
      style={styles.container}
      {...rest} />
-
-  
   )
 }

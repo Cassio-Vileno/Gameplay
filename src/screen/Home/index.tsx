@@ -1,12 +1,12 @@
 import { CategorySelect } from "../../components/CategorySelect";
 import { ListDivider } from "../../components/ListDivider/Index";
-import { Appointments } from "../../components/Appointment";
+import { Appointment, AppointmentProps } from "../../components/Appointment";
 import { useNavigation } from "@react-navigation/native";
 import { Background } from '../../components/Background';
 import { ListHeader } from "../../components/ListHeader";
 import { ButtonAdd } from "../../components/ButtonAdd";
 import { Profile } from "../../components/Profile";
-import { View, FlatList,  } from "react-native"
+import { View, FlatList, } from "react-native"
 import React, { useState } from "react";
 import { styles } from "./styles";
 
@@ -38,27 +38,15 @@ export function Home() {
       category: '2',
       date: '11/11 as 17:23h',
       description: 'É hoje que vamos chegar a meste sem preder uma partida'
-    },
-    {
-      id: '3',
-      guild: {
-        id: '3',
-        name: 'Lendários',
-        icon: null,
-        owner: false
-      },
-      category: '1',
-      date: '11/11 as 17:23h',
-      description: 'É hoje que vamos chegar a meste sem preder uma partida'
-    },
+    }
   ]
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId);
   }
 
-  function handleAppointmentsDetails() {
-    navigation.navigate('AppointmentsDetails')
+  function handleAppointmentDetails(guildSelected: AppointmentProps) {
+    navigation.navigate('AppointmentDetails', { guildSelected });
   }
   function handleAppointmentsCriate() {
     navigation.navigate('AppointmentsCriate')
@@ -76,24 +64,24 @@ export function Home() {
           setCategory={handleCategorySelect} />
       </View>
 
-      <View style={styles.content}>
-        <ListHeader title="Partidas agendadas"
-          subtitle="Total: 6" />
+        <ListHeader 
+        title="Partidas agendadas"
+          subtitle="Total: 6"
+           />
 
         <FlatList
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Appointments
-              data={item}
-              onPress={handleAppointmentsDetails}
-               />
+            <Appointment
+            data={item}
+            onPress={() => handleAppointmentDetails(item)}
+            />
           )}
-
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
+          contentContainerStyle={{ paddingBottom: 69 }}
           showsVerticalScrollIndicator={false} />
-      </View>
     </Background>
   )
 }
