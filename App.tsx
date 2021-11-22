@@ -5,6 +5,7 @@ import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhan
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
+LogBox.ignoreLogs(['You are not currently signed in to Expo on your development machine'])
 
 import { AuthProvider } from './src/hooks/auth';
 

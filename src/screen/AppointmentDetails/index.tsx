@@ -18,6 +18,7 @@ import { ListHeader } from '../../components/ListHeader';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { Member } from '../../components/Member';
 import { Header } from '../../components/Header';
+import { ListDivider } from '../../components/ListDivider/Index';
 
 export function AppointmentDetails(){
   const members = [
@@ -73,8 +74,10 @@ export function AppointmentDetails(){
         data={members}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <Member data={item} />
+          <Member data={item}
+           />
         )}
+        ItemSeparatorComponent={() => <ListDivider isCentered/>}
         style={styles.members}
       />
 
