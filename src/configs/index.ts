@@ -4,7 +4,7 @@ import {
   RESPONSE_TYPE,
   CLIENT_ID,
   CDN_IMAGE
-} from './discordAuth'
+} from './discordAuth';
 
 export {
   REDIRECT_URI,
